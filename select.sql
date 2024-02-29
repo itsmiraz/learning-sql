@@ -1,3 +1,4 @@
+-- Active: 1709175476422@@127.0.0.1@5432@ph
 CREATE TABLE student (
   student_id SERIAL PRIMARY KEY,
   first_name VARCHAR(50),
@@ -23,4 +24,28 @@ INSERT INTO student (first_name, last_name, age, grade, course, email, dob, bloo
 
 
 
-SELECT * from student;
+SELECT * from student WHERE country = 'United States';
+
+SELECT upper(first_name) as first_name_in_capital, *  from student;
+
+
+SELECT concat(first_name, ' ', last_name) as full_name, * from student;
+
+
+SELECT avg(age) from student;
+
+
+SELECT max(length(first_name)) from student;
+
+
+SELECT * from student WHERE country IN('United States','Canada');
+
+ALTER TABLE  student RENAME to students;
+
+SELECT * from students;
+
+
+SELECT * from students
+ WHERE first_name ILIKE '%HN';
+
+
